@@ -1,0 +1,22 @@
+/change in rule 
+allow read , write : if request.auth==null(without authentication)
+allow read , write : if request.auth!=null(with authentication)
+
+
+firebase folder storage
+Users=>Users UID=>profile.jpg
+
+
+
+for security
+
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /users/{uid}/{profileImage}
+    {
+      allow read, write: if
+          request.auth.uid ==uid;
+    }
+  }
+}
