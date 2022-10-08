@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+
+        hello
+        <span id="clientName"></span>
+        <img id="clientPhoto" src="">
+
+    </h1>
+    <button onClick="googlelogin()">click me</button>
+</body>
+<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-auth.js">
+
+   </script>
+     <script>
+        const config = {
+          apiKey: "AIzaSyAEcGt8MxREdCRDqfpyWkv83EAv0yO9hrs",
+          authDomain: "fir-login-371cf.firebaseapp.com",
+          projectId: "fir-login-371cf",
+          storageBucket: "fir-login-371cf.appspot.com",
+          messagingSenderId: "810558427307",
+          appId: "1:810558427307:web:fe1ca2cfebcac1e03ca7ee"
+        };
+      
+        // Initialize Firebase
+     firebase.initializeApp(config);
+
+
+     function login(){
+        function newLoginHappened(user){
+if(user){
+    //user is signed in
+    app(user);
+}
+else{
+    var provider=new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithRedirect(provider);
+}
+        }
+
+        firebase.auth().onAuthStateChanged(newLoginHappened);
+     }
+
+     function app(user){
+        //user.displayName
+        //user.email
+        //user.photoURL
+        //user.uid
+document.getElementById("clientName").innerHTML=user.displayName;
+document.getElementById("clientPhoto").setAttribute("src",user.photoURL)
+    
+
+}
+function googlelogin(){
+    login()
+    console.log('ee');
+    
+}
+
+</script>
+
+</html>

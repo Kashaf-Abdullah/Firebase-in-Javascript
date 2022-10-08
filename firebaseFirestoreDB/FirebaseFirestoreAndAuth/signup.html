@@ -1,0 +1,87 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <div class="signupform">
+            <input type="text" id="name" name="name" placeholder="name">
+            <input type="number" id="age" name="age" placeholder="Age">
+            <input type="text" id="domain" name="domain" placeholder="domain">
+            <input type="email" id="email" placeholder="email">
+            <input type="password" id="password" placeholder="password">
+            
+<button type="submit" id="signupform">SUBMIT</button>
+        </div>
+    </form>    
+    
+<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-firestore.js"></script>
+<script>
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDhVYhULmMaWeqOyw5nGHeT_pIAQAQCzCU",
+    authDomain: "fir-js-179e6.firebaseapp.com",
+    projectId: "fir-js-179e6",
+    storageBucket: "fir-js-179e6.appspot.com",
+    messagingSenderId: "887561440108",
+    appId: "1:887561440108:web:4a547b9511d43277d44149"
+  };
+
+    //initialize firebase
+    firebase.initializeApp(firebaseConfig)
+    const auth=firebase.auth()
+    const db=firebase.firestore();
+  
+
+    //signup function
+
+    let signupbutton=document.getElementById('signupform');
+
+    signupbutton.addEventListener('click',(e)=>{
+e.preventDefault();
+let name=document.getElementById('name')
+    let age=document.getElementById('age')
+    let domain=document.getElementById('domain')
+var email=document.getElementById("email")
+var password=document.getElementById("password")
+console.log(email.value,password.value)
+
+e.preventDefault()
+
+auth.createUserWithEmailAndPassword(email.value,password.value).
+then((userCredentials)=>{
+    console.log(userCredentials)
+db.collection('users2').doc(auth.currentUser.uid)
+.set({
+    name:name.value,
+    age:age.value,
+    domain:domain.value
+}).catch((err)=>{
+    console.log('error in firestore');
+    
+})
+
+    // window.location="login.html"
+
+
+})
+.catch((err)=>{
+    alert(err.message)
+})
+    })
+
+
+
+    
+</script>
+</body>
+</html>
+

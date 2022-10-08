@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="add-modal modal-wrapper">
+    <form class="form" autocomplete="off">
+        <input type="text" name="firstName" placeholder="First Name">
+        <input type="text" name="lastName" placeholder="Last Name">
+        <input type="number" name="phone" placeholder="Phone">
+        <input type="email" name="email" placeholder="Email">
+        <button class="btn btn-modal">Submit</button>
+      </form>
+
+</div>
+
+      <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+    
+      <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-firestore.js"></script>
+     
+     <script>
+        const firebaseConfig = {
+    apiKey: "AIzaSyBjh_jm4pC4avu4zcwaLSTenq_OscFTlHE",
+    authDomain: "fir-auth-js-f287f.firebaseapp.com",
+    projectId: "fir-auth-js-f287f",
+    storageBucket: "fir-auth-js-f287f.appspot.com",
+    messagingSenderId: "17027716061",
+    appId: "1:17027716061:web:c02738411c19f8f1675c34"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+const db=firebase.firestore();
+</script>
+
+
+
+
+        </script>
+      <script src="index.js"></script>
+    
+</body>
+</html>

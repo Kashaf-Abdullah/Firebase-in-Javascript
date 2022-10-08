@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h4 id="users" onClick="read()">welcomed user</h4>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-firestore.js"></script>
+    
+    <script>
+        
+const firebaseConfig = {
+    apiKey: "AIzaSyDhVYhULmMaWeqOyw5nGHeT_pIAQAQCzCU",
+    authDomain: "fir-js-179e6.firebaseapp.com",
+    projectId: "fir-js-179e6",
+    storageBucket: "fir-js-179e6.appspot.com",
+    messagingSenderId: "887561440108",
+    appId: "1:887561440108:web:4a547b9511d43277d44149"
+  };
+
+    //initialize firebase
+    firebase.initializeApp(firebaseConfig)
+    const auth=firebase.auth()
+    const db=firebase.firestore();
+
+    
+
+
+ const read=(user)=>{
+        db.collection('users')
+    .get()
+    .then(snapshot => {
+    snapshot.forEach(user => {
+      console.log(user.id, ' => ', user.data().name);
+    
+      if(user){
+      var currentuser=user.data().name;
+   
+var users=document.getElementById("users")  
+  var text=document.createTextNode(currentuser)
+  
+  users.appendChild(text)}
+
+    });
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
+
+  }
+    </script>
+</body>
+      
+
+</html>
+
+<!-- 
+
+const read=(user)=>{
+    db.collection('users')
+.get()
+.then(snapshot => {
+
+if(user){
+    // getUserData(user.uid)
+
+  var currentuser=user.data().name;
+
+var users=document.getElementById("users")  
+var text=document.createTextNode(currentuser)
+
+users.appendChild(text)}
+})
+.catch(error => {
+console.error(error);
+});
+
+} -->

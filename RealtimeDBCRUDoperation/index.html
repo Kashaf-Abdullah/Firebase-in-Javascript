@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" name="userid" id="userId" ><br>
+        <input type="text" name="firstName" id="firstName" ><br>
+        <input type="text" name="lastName" id="lastName" ><br>
+        <input type="number" name="age" id="age" ><br>
+<button id="addBtn">Add</button>
+<button id="updateBtn">update</button>
+<button id="removeBtn">remove</button>
+    
+</form>
+
+<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-database.js"></script>
+
+<script>
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCRXvJhPFeP4hNNlqChaM8L2qY3BBPwtCE",
+      authDomain: "fir-realtime-js.firebaseapp.com",
+      projectId: "fir-realtime-js",
+      storageBucket: "fir-realtime-js.appspot.com",
+      messagingSenderId: "4096251698",
+      appId: "1:4096251698:web:447aefce8f4a835630a92b"
+    };
+  
+    // Initialize Firebase
+ firebase.initializeApp(firebaseConfig);
+  </script>
+<script src="index.js"></script>
+</body>
+</html>

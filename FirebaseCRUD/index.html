@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+<h1>REGISTER</h1>
+    <div class="main">
+        <label>EMAIL</label>
+        <input type="email" placeholder="email" name="email" id="email">
+        <label>PASSWORD</label>
+        <input type="password" placeholder="password" name="password" id="password">
+
+<button  onClick="register()">Submit</button>
+
+    </div>
+    <h1>LOGIN</h1>
+
+    <div class="main">
+        <label>EMAIL</label>
+        <input type="email" placeholder="email" name="email" id="email">
+        <label>PASSWORD</label>
+        <input type="password" placeholder="password" name="password" id="password">
+
+<button onClick="login()">Submit</button>
+
+    </div>
+
+
+    <h1>FIREBASE FIRESTORE SAVE DATA</h1>
+    
+    <div class="main">
+        <label>EMAIL</label>
+        <input type="email" placeholder="email" name="email" id="email">
+        <label>PASSWORD</label>
+        <input type="password" placeholder="password" name="password" id="password">
+
+<button  onClick="saveData()">Save Data</button>
+<button  onClick="readData()">Read Data</button>
+<button  onClick="updateData()">Update Data</button>
+<button  onClick="deleteData()">Delete Data</button>
+
+    </div>
+
+</body>
+<script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-auth-compat.js"></script>
+<script src="index.js"></script>
+
+</html>
